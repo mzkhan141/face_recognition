@@ -10,22 +10,21 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    'face_recognition_models',
+    'face_recognition_models>=0.3.0',
     'Click>=6.0',
-    'dlib>=19.3.0',
+    'dlib>=19.7',
     'numpy',
-    'Pillow',
-    'scipy>=0.17.0'
+    'Pillow'
 ]
 
 test_requirements = [
     'tox',
-    'flake8'
+    'flake8==2.6.0'
 ]
 
 setup(
     name='face_recognition',
-    version='0.2.0',
+    version='1.2.3',
     description="Recognize faces from Python or from the command line",
     long_description=readme + '\n\n' + history,
     author="Adam Geitgey",
@@ -40,7 +39,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'face_recognition=face_recognition.cli:main'
+            'face_recognition=face_recognition.face_recognition_cli:main',
+            'face_detection=face_recognition.face_detection_cli:main'
         ]
     },
     install_requires=requirements,
